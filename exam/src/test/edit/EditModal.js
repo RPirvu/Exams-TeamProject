@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import {Context} from '../../api/Context';
 
-const Modal = ({name}) => {
+const Modal = () => {
 
   const[exams,setExams]=useContext(Context);
   const [open, setOpen] = React.useState(false);
@@ -33,23 +33,25 @@ const Modal = ({name}) => {
       setDate(e.target.value);
   };
 
-  const addExam = (e) => {
-      axios.post('http://localhost:3001/exams',{subject , date})
-      .then((response) => {
-          const exam = {subject: subject,date: date};
-          const newExams = [...exams,exam];
-          setExams(newExams);
-          // this.setState({exams,newExamModal: false});
-      });
-      // this.setState({filteredExams: []})
-    window.location.reload();
-      
+  const updateExam = () => {
+    let { subject, date } = this.state.editExamData;
+    axios
+        .put('http://localhost:3001/exams/' + this.state.editExamData.id, {
+            subject,
+            date
+        })
+        .then(response => {
+            this.setState({editExamModal: false})
+            this.refreshExams();
+        });
+      this.setState({filteredExams: []})
+}  
   }
 
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        {name}
+        Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add a New Exam</DialogTitle>
