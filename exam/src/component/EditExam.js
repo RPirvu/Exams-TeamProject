@@ -20,7 +20,7 @@ const AddExam = () => {
             })
             .then(response => {
                 this.setState({editExamModal: false})
-                this._refreshExams();
+                this.refreshExams();
             });
           this.setState({filteredExams: []})
       }
