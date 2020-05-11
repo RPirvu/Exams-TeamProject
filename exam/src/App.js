@@ -2,7 +2,7 @@ import React from 'react';
 import ExamList from './component/ExamList';
 import './App.css';
 import { ExamProvider } from './api/Context';
-import AddExam from './component/AddExam';
+import AddModal from './component/modals/AddModal';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     <ExamProvider>
       <div className="App">
       <h1>App Works</h1>
-        <AddExam/>
+        <AddModal/>
         <ExamList/>
       </div>
     </ExamProvider>

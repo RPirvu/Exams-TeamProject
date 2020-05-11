@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import {Context} from '../../api/Context';
 
-const Modal = ({name}) => {
+const Modal = () => {
 
   const[exams,setExams]=useContext(Context);
   const [open, setOpen] = React.useState(false);
@@ -49,7 +49,7 @@ const Modal = ({name}) => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        {name}
+        Add
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add a New Exam</DialogTitle>

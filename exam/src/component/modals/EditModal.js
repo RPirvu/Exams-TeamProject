@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import {Context} from '../../api/Context';
 
-const Modal = () => {
+const Modal = ({name, id}) => {
 
   const[exams,setExams]=useContext(Context);
   const [open, setOpen] = React.useState(false);
@@ -34,19 +34,13 @@ const Modal = () => {
   };
 
   const updateExam = () => {
-    let { subject, date } = this.state.editExamData;
     axios
-        .put('http://localhost:3001/exams/' + this.state.editExamData.id, {
-            subject,
-            date
-        })
-        .then(response => {
-            this.setState({editExamModal: false})
-            this.refreshExams();
-        });
-      this.setState({filteredExams: []})
-    }  
-  
+    .put('http://localhost:3001/exams/' + id,{ 
+        subject,
+        date}
+    );
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -85,7 +79,7 @@ const Modal = () => {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={addExam} color="primary">
+          <Button onClick={updateExam} color="primary">
             Save
           </Button>
         </DialogActions>

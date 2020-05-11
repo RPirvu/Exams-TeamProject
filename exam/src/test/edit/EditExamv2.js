@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react';
 import axios from 'axios';
-import {Context} from '../api/Context';
+import {Context} from '../../api/Context';
 const AddExam = () => {
     const[exams,setExams]=useContext(Context);
 
