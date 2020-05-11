@@ -7,6 +7,7 @@ const Exam = ({subject, date,id}) => {
         <div>
             <h3>{subject}</h3>
             <p>{date}</p>
+            <button>Edit</button>
             <DeleteExam id={id}/>
         </div>
     )
