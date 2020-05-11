@@ -45,8 +45,8 @@ const Modal = () => {
             this.refreshExams();
         });
       this.setState({filteredExams: []})
-}  
-  }
+    }  
+  
 
   return (
     <div>
