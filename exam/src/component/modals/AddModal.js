@@ -11,8 +11,10 @@ import {Context} from '../../api/Context';
 
 const Modal = () => {
 
-  const[exams,setExams]=useContext(Context);
   const [open, setOpen] = React.useState(false);
+  const { examData, examFilter } = useContext(Context);
+  const [stateExam, setStateExam] = examData;
+  const [stateDataFilter, setStateDataFilter] = examFilter;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -37,18 +39,25 @@ const Modal = () => {
       axios.post('http://localhost:3001/exams',{subject , date})
       .then((response) => {
           const exam = {subject: subject,date: date};
-          const newExams = [...exams,exam];
-          setExams(newExams);
-          // this.setState({exams,newExamModal: false});
+          const newExams = [...stateExam,exam];
+          setStateExam(newExams);
       });
-      // this.setState({filteredExams: []})
-    window.location.reload();
+      setOpen(false);
+      refreshExams()
       
   }
+  const refreshExams = async () => {
+    await axios.get('http://localhost:3001/exams')
+    .then(res => {
+        setStateExam(res.data);
+    });
+    window.location.reload();
+  }
+  
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="White" onClick={handleClickOpen}>
         Add
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -70,8 +79,7 @@ const Modal = () => {
           <TextField
             autoFocus
             margin="dense"
-            id="date"
-            label="date"
+            id="date" 
             type="date"
             onChange={updateDate}
             fullWidth

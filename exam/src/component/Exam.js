@@ -1,18 +1,23 @@
 import React,{useState} from 'react';
-import DeleteExam from './DeleteExam';
+import DeleteExam from './button/DeleteExam';
 import EditModal from './modals/EditModal';
 import {Button} from '@material-ui/core';
-const Exam = ({subject, date,id}) => {
+import ExPanel from '../test/expanel/ExpansionPanel';
+const Exam = ({subject, date, id}) => {
 
     return(
         <div>
-            <h3>{subject}</h3>
+            {/* <h3>{subject}</h3>
             <p>{date}</p>
             <Button>
-                    <EditModal id={id} subject={subject} date={date}/>
+                    <EditModal id={id} sub={subject} da={date}/>
             </Button>
             
-            <DeleteExam id={id}/>
+            <DeleteExam id={id}/> */}
+
+            <ExPanel id = {id} subject={subject} date={date}/>
+            {/* <EditModal id={id} sub={subject} da={date}/>
+            <DeleteExam id={id}/>  */}
         </div>
     )
 }

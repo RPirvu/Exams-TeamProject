@@ -9,9 +9,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import {Context} from '../../api/Context';
 
-const Modal = ({name, id}) => {
+const EditModal = ({name, id, sub,da}) => {
 
-  const[exams,setExams]=useContext(Context);
+  const { examData } = useContext(Context);
+  const [ stateExam, setStateExam]  = examData;
+ 
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,10 +28,13 @@ const Modal = ({name, id}) => {
   const[date,setDate] = useState('');
 
   const updateSubject = (e) => {
+    console.log("ETVL:",e.target.value.length)
+    if(e.target.value.length != 0)
       setSubject(e.target.value);
   };
 
   const updateDate = (e) => {
+    if(e.target.value.length != 0)
       setDate(e.target.value);
   };
 
@@ -48,7 +53,7 @@ const Modal = ({name, id}) => {
         Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Add a New Exam</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit Exam</DialogTitle>
         <DialogContent>
           <DialogContentText>
             
@@ -59,6 +64,7 @@ const Modal = ({name, id}) => {
             id="subject"
             label="subject"
             type="text"
+            defaultValue={sub}
             onChange={updateSubject}
             fullWidth
             
@@ -69,6 +75,7 @@ const Modal = ({name, id}) => {
             id="date"
             label="date"
             type="date"
+            defaultValue={da}
             onChange={updateDate}
             fullWidth
             
@@ -88,4 +95,4 @@ const Modal = ({name, id}) => {
   );
 }
 
-export default Modal;
+export default EditModal;
