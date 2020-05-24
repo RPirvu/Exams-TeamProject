@@ -15,6 +15,7 @@ export const ExamProvider = (props) => {
             setExams(res.data);
             setDataFiltered(res.data)
         });
+        
     }
     
     useEffect( () => {

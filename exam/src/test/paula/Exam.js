@@ -15,7 +15,7 @@ const Exam = ({subject, date, id,session,classroom,universityYear,studyYear,sect
             
             <DeleteExam id={id}/> */}
 
-<ExPanel id = {id} subject={subject} date={date} session={session} classroom={classroom} universityYear={universityYear} studyYear={studyYear} section={section} numberOfPlaces={numberOfPlaces} teacher={teacher}/>
+            <ExPanel id = {id} subject={subject} date={date} session={session} classroom={classroom} universityYear={universityYear} studyYear={studyYear} section={section} numberOfPlaces={numberOfPlaces} teacher={teacher}/>
             {/* <EditModal id={id} sub={subject} da={date}/>
             <DeleteExam id={id}/>  */}
         </div>

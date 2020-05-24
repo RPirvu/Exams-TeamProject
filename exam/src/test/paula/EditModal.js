@@ -8,24 +8,18 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import {Context} from '../../api/Context';
-import MenuItem from '@material-ui/core/MenuItem'
-import Select from '@material-ui/core/Select'
 
-const EditModal = ({name, id, sub,da,}) => {
+const EditModal = ({name, id, sub,da}) => {
 
-  const { examData, examFilter } = useContext(Context);
-  const [stateExam, setStateExam] = examData;
-
-
-  const[subject,setSubject] = useState('');
-  const[date,setDate] = useState('');
-  const[session,setSession]=useState('');
-  const[classroom,setClassroom]=useState('');
-  const[universityYear,setuniverstYear]=useState('');
-  const[studyYear,setstudyYear]=useState('');
-  const[section,setsection]=useState('');
-  const[numberOfPlaces,setnumberOfPlaces]=useState('');
-  const[teacher,setteacher]=useState('');
+    const[subject,setSubject] = useState('');
+    const[date,setDate] = useState('');
+    const[session,setSession]=useState('');
+    const[classroom,setClassroom]=useState('');
+    const[universityYear,setuniverstYear]=useState('');
+    const[studyYear,setstudyYear]=useState('');
+    const[section,setsection]=useState('');
+    const[numberOfPlaces,setnumberOfPlaces]=useState('');
+    const[teacher,setteacher]=useState('');
  
   const [open, setOpen] = React.useState(false);
 
@@ -36,6 +30,9 @@ const EditModal = ({name, id, sub,da,}) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const[subject,setSubject] = useState('');
+  const[date,setDate] = useState('');
 
   const updateSubject = (e) => {
     console.log("ETVL:",e.target.value.length)
@@ -52,6 +49,8 @@ const EditModal = ({name, id, sub,da,}) => {
 const updateSession = (e)=> {
   setSession(e.target.value);
 }
+
+
 const updateClassroom = (e) => {
   setClassroom(e.target.value);
 };
@@ -77,10 +76,8 @@ setteacher(e.target.value);
         subject,
         date}
     );
-    console.log(subject,date);
     refreshExams();
   };
-
   const refreshExams = async () => {
     await axios.get('http://localhost:3001/exams')
     .then(res => {

@@ -20,13 +20,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
-
 const useStyles = makeStyles((theme) => ({
-  root: {
-        width: '60%',
-        padding : '3px',
-        paddingLeft: '300px',
-      },
+  rooot: {
+    width: '100%',
+  },
   table : {
     width : 400,
     fontSize: 20

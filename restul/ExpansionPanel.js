@@ -19,20 +19,16 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-        width: '60%',
-        padding : '3px',
-        paddingLeft: '300px',
-      },
+  rooot: {
+    width: '100%',
+  },
   table : {
     width : 400,
     fontSize: 20
     
   },
-  
   heading: {
     fontSize: theme.typography.pxToRem(20),
   },
@@ -67,16 +63,6 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-const theme=createMuiTheme({
-  palette:{
-    primary:
-    {
-        main: '#5E35B1'
-    },
-    
-
-  }
-})
 export default function ExPanel({subject, date, id,session,classroom,teacher,universityYear,studyYear,section,numberOfPlaces}) {
   const classes = useStyles();
 
@@ -165,15 +151,14 @@ export default function ExPanel({subject, date, id,session,classroom,teacher,uni
        </Table>   
        </TableContainer>            
         </ExpansionPanelDetails>
-        <MuiThemeProvider theme={theme}>
+        
         <ExpansionPanelActions>
-      
-          <Button >      
+          <Button>      
             <EditModal id={id} sub={subject} da={date}/>
           </Button>      
           <DeleteExam id={id}/>          
         </ExpansionPanelActions>
-        </MuiThemeProvider>
+        
       </ExpansionPanel>
       
       

@@ -1,38 +1,30 @@
 {
   "exams": [
     {
-      "subject": "TEST",
-      "date": "0001-01-01",
-      "id": 1
-    },
-    {
-      "subject": "aaaa",
-      "date": "0001-11-11",
+      "subject": "",
+      "date": "",
       "id": 2
     },
     {
-      "subject": "Web Design",
-      "date": "0001-02-23",
-      "id": 3
-    },
-    {
-      "subject": "P3 - Java",
-      "date": "0003-12-31",
-      "id": 4
-    },
-    {
-      "subject": "P3 - Java",
-      "date": "0212-03-12",
+      "subject": "p2",
+      "date": "",
       "id": 5
     },
     {
-      "subject": "P",
-      "date": "0003-12-31",
+      "subject": "",
+      "date": "",
       "id": 6
     },
     {
-      "subject": "sadsa",
-      "date": "0003-12-31",
+      "subject": "P2 - C++",
+      "date": "1111-01-11",
+      "session": "iarna",
+      "classroom": "F108",
+      "universityYear": "1",
+      "studyYear": "2020",
+      "section": "IA",
+      "numberOfPlaces": "30",
+      "teacher": "Iordan",
       "id": 7
     }
   ]
