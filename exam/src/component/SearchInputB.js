@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     const { examData, examFilter } = useContext(Context);
     const [stateExam, setStateExam] = examData;
     const [stateDataFilter, setStateDataFilter] = examFilter;
-    const [search , setSearch] = useState('subject');
+    const [search , setSearch] = useState('Subject');
 
     let data = stateExam;
     const updateFilter = (value) => {
