@@ -22,13 +22,15 @@ import Paper from '@material-ui/core/Paper';
 import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
     root: {
-          width: '60%',
-          padding : '3px',
-          paddingLeft: '300px',
+      paddingTop: '10px',
+      display: 'flex',  
+      justifyContent:'center', 
+      alignItems:'center', 
+      
         },
     table : {
-      width : 400,
-      fontSize: 20
+      width : 200,
+      fontSize: 15
       
     },
     
@@ -37,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
     },
     secondaryHeading: {
       fontSize: theme.typography.pxToRem(20),
+      color: theme.palette.text.secondary,
+    },
+    section: {
+      fontSize: theme.typography.pxToRem(18),
       color: theme.palette.text.secondary,
     },
     icon: {
@@ -54,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         flexBasis : "23.33%"
     },
     boldStyle : {
-        fontWeight : 'bold',
+        
         margin: '0',
         padding: '0',
         border: '0',
@@ -95,92 +101,49 @@ export default function Exam({subject, date, id,session,classroom,teacher,univer
               aria-controls="panel1a-content"
               id="panel1a-header"
           >
-              <div className={classes.column}>
+            <div className={classes.column}>
               <Typography className={classes.heading}>{subject}</Typography>
-            </div>   
+            </div>  
+            <div className={classes.column}>
+              <Typography className={classes.secondaryHeading}>{startHour}</Typography>
+            </div>
             <div className={classes.column}>
               <Typography className={classes.secondaryHeading}>{date.split("-").reverse().join("-")}</Typography>
             </div>
             <div className={classes.column}>
-              <Typography className={classes.secondaryHeading}> Sesiune {session}</Typography>
-  
+                <Typography className={classes.section}>{section}({studyYear})</Typography>
             </div>
+            
           </ExpansionPanelSummary>
           
           <ExpansionPanelDetails>           
           <TableContainer component={Paper}>               
-          <Table className={classes.table} >
-             <TableBody >
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                  Teacher 
-                </TableCell>
-                <TableCell>
-                   {teacher}
-                 </TableCell>
-               </TableRow>
-               
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                 University year 
-                </TableCell>
-                <TableCell>
-                   {universityYear}
-                 </TableCell>
-               </TableRow>
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                Classroom  code 
-                </TableCell>
-                <TableCell>
-                   {classroom}
-                 </TableCell>
-               </TableRow>
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                 Study year 
-                </TableCell>
-                <TableCell>
-                   {studyYear}
-                 </TableCell>
-               </TableRow>
-  
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                Specialization 
-                </TableCell>
-                <TableCell>
-                   {section}
-                 </TableCell>
-               </TableRow>
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                Number of seats 
-                </TableCell>
-                <TableCell>
-                   {numberOfPlaces}
-                 </TableCell>
-               </TableRow>
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                Student 
-                </TableCell>
-                <TableCell>
-                   {studentName}
-                 </TableCell>
-               </TableRow>
-               <TableRow>
-                <TableCell className={classes.boldStyle}>
-                Start time
-                </TableCell>
-                <TableCell>
-                   {startHour}
-                 </TableCell>
-               </TableRow>
-  
-             </TableBody>
-             
-         </Table>   
+         <Table>
+           <TableHead>
+             <TableRow>
+               <TableCell align='center'>Specialization</TableCell>
+               <TableCell align='center'>Teacher</TableCell>
+               <TableCell align='center'>Classroom</TableCell>
+               <TableCell align='center'>Session</TableCell>
+               <TableCell align='center'>Number of Seats</TableCell>
+               <TableCell align='center'>Study Year</TableCell>
+               <TableCell align='center'>university Year</TableCell>
+               <TableCell align='center'>Student Name</TableCell>
+              </TableRow>
+            </TableHead> 
+            <TableBody>
+              <TableRow>
+                <TableCell align='center'>{section}</TableCell>
+                <TableCell align='center'>{teacher}</TableCell>
+                <TableCell align='center'>{classroom}</TableCell>
+                <TableCell align='center'>{session}</TableCell>
+                <TableCell align='center'>{numberOfPlaces}</TableCell>
+                <TableCell align='center'>{studyYear}</TableCell>
+                <TableCell align='center'>{universityYear}</TableCell>
+                <TableCell align='center'>{studentName}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table> 
          </TableContainer>            
           </ExpansionPanelDetails>
           <MuiThemeProvider theme={theme}>

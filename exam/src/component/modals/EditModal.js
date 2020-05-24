@@ -96,7 +96,7 @@ const updateStudentName = (e) => {
     window.location.reload();
   }
   const sesiuni = [
-    'Vara', 'Iarna','Toamna'
+     'Winter','Summer','Autumn'
   ]
 
   return (

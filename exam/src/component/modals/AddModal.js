@@ -11,6 +11,7 @@ import {Context} from '../../api/Context';
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AddIcon from '@material-ui/icons/Add';
+import { Typography, TableRow } from '@material-ui/core';
 const Modal = () => {
 
   const [open, setOpen] = React.useState(false);
@@ -93,7 +94,7 @@ const Modal = () => {
     window.location.reload();
   }
   const sesiuni = [
-    'Vara', 'Iarna', 'Toamna'
+    'Winter','Summer','Autumn'
   ]
 
 
@@ -128,8 +129,9 @@ const Modal = () => {
             fullWidth
             
           />
-
-          <TextField
+          <div>
+            <TableRow>
+            <TextField
             autoFocus
             margin="dense"
             id="time" 
@@ -138,6 +140,9 @@ const Modal = () => {
             fullWidth
             
           />
+          </TableRow>  
+          </div>
+         
           <Select 
           
           autoFocus
