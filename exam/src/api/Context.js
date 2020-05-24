@@ -6,7 +6,6 @@ export const Context = createContext();
 export const ExamProvider = (props) => {
 
     const [ exams,setExams ] = useState({});
-    const [ search, setSearch ] = useState([]);
     const [ dataFiltered,setDataFiltered ] = useState({});
 
     const refreshExams = async () =>{

@@ -15,13 +15,24 @@ const ExamList = () => {
     else {
         result = stateExam;
     }
- 
-    return(
+   return(
         <div>
            {Array.isArray(result) && result.map((exam, index) => {
                 return( 
                     <div>
-                        <Exam subject={exam.subject} date={exam.date} id={exam.id} session={exam.session} classroom={exam.classroom} universityYear={exam.universityYear} studyYear={exam.studyYear} section={exam.section} numberOfPlaces={exam.numberOfPlaces} teacher={exam.teacher}/>
+                        <Exam subject={exam.subject} 
+                            date={exam.date} 
+                            id={exam.id} 
+                            session={exam.session} 
+                            classroom={exam.classroom} 
+                            universityYear={exam.universityYear}
+                            studyYear={exam.studyYear}
+                            section={exam.section}
+                            numberOfPlaces={exam.numberOfPlaces} 
+                            teacher={exam.teacher}
+                            studentName={exam.studentName}
+                            startHour={exam.startHour}
+                        />
                     </div>
                     )
                 })

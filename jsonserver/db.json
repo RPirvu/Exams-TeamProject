@@ -1,31 +1,32 @@
 {
   "exams": [
     {
-      "subject": "",
-      "date": "",
-      "id": 2
-    },
-    {
-      "subject": "p2",
-      "date": "",
-      "id": 5
-    },
-    {
-      "subject": "",
-      "date": "",
-      "id": 6
-    },
-    {
-      "subject": "P2 - C++",
-      "date": "1111-01-11",
+      "subject": "Web Design",
+      "date": "2222-02-22",
+      "startHour": "20:22",
       "session": "iarna",
-      "classroom": "F108",
+      "classroom": "222",
+      "universityYear": "222",
+      "studyYear": "222",
+      "section": "2",
+      "numberOfPlaces": "2",
+      "teacher": "2",
+      "studentName": "2",
+      "id": 1
+    },
+    {
+      "subject": "P3 - Java",
+      "date": "1111-11-11",
+      "startHour": "11:11",
+      "session": "vara",
+      "classroom": "111",
       "universityYear": "1",
-      "studyYear": "2020",
-      "section": "IA",
-      "numberOfPlaces": "30",
-      "teacher": "Iordan",
-      "id": 7
+      "studyYear": "1",
+      "section": "1",
+      "numberOfPlaces": "1",
+      "teacher": "1",
+      "studentName": "1",
+      "id": 2
     }
   ]
 }

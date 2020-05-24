@@ -13,6 +13,8 @@ import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add';
 import {Context} from '../api/Context';
 import AddModal from '../component/modals/AddModal'
+import {Select} from '@material-ui/core';
+import {MenuItem} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -78,14 +80,29 @@ const useStyles = makeStyles((theme) => ({
     const { examData, examFilter } = useContext(Context);
     const [stateExam, setStateExam] = examData;
     const [stateDataFilter, setStateDataFilter] = examFilter;
+    const [search , setSearch] = useState('subject');
 
     let data = stateExam;
     const updateFilter = (value) => {
-        
-        setStateDataFilter(data.filter(exam => {
-            return exam.subject.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-        }))
-        console.log("DATA",data)    
+      console.log("upFIlter",search)
+        if (search === 'Subject')
+        {
+        setStateDataFilter(data.filter((exam) => {
+            return exam.subject.toLowerCase().indexOf(value.toLowerCase()) !== -1
+          })) 
+        };
+        if (search === 'Section')
+        {
+        setStateDataFilter(data.filter((exam) => {
+            return exam.section.toLowerCase().indexOf(value.toLowerCase()) !== -1
+          })) 
+        };
+        if (search === 'Study Year')
+        {
+        setStateDataFilter(data.filter((exam) => {
+          return exam.studyYear.toLowerCase().indexOf(value.toLowerCase()) !== -1
+        }))  
+      };
     }
     
     const onInputChange = (event)  => {
@@ -108,7 +125,14 @@ const theme=createMuiTheme({
   }
 })
 
+ const updateSearch = (event) => {
+   setSearch(event.target.value);
+   console.log(search)
+ }
 
+const choice = [
+  'Subject', 'Section', 'Study Year'
+]
 
 
   return (
@@ -119,9 +143,6 @@ const theme=createMuiTheme({
         <Toolbar>
         
           <AddModal/>
-           
-         
-          
           <Typography className={classes.title} variant="h6" noWrap>
             Exam Planner
           </Typography>
@@ -141,11 +162,33 @@ const theme=createMuiTheme({
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
+            
           </div>
+          <div>
           
+          <Select 
+          
+          autoFocus
+          margin="dense"
+          id="choice"
+          type="choice"
+          label="choice"
+          
+          onChange={updateSearch}
+          fullWidth
+          
+          > 
+            {choice.map((choice) => (
+            <MenuItem key={choice} value={choice}>
+              {choice}
+            </MenuItem>
+          ))}
+      </Select> 
+          </div>
         </Toolbar>
-        
+       
       </AppBar>
+      
       </MuiThemeProvider>
     </div>
   );

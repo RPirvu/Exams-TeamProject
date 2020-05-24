@@ -11,21 +11,23 @@ import {Context} from '../../api/Context';
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 
-const EditModal = ({name, id, sub,da,}) => {
+const EditModal = ({Esubject, Edate, id,Esession,Eclassroom,Eteacher,EuniversityYear,EstudyYear,Esection,EnumberOfPlaces, EstudentName,EstartHour}) => {
 
   const { examData, examFilter } = useContext(Context);
   const [stateExam, setStateExam] = examData;
 
 
-  const[subject,setSubject] = useState('');
-  const[date,setDate] = useState('');
-  const[session,setSession]=useState('');
-  const[classroom,setClassroom]=useState('');
-  const[universityYear,setuniverstYear]=useState('');
-  const[studyYear,setstudyYear]=useState('');
-  const[section,setsection]=useState('');
-  const[numberOfPlaces,setnumberOfPlaces]=useState('');
-  const[teacher,setteacher]=useState('');
+  const[subject,setSubject] = useState(Esubject);
+  const[date,setDate] = useState(Edate);
+  const[session,setSession]=useState(Esession);
+  const[classroom,setClassroom]=useState(Eclassroom);
+  const[universityYear,setuniverstYear]=useState(EuniversityYear);
+  const[studyYear,setstudyYear]=useState(EstudyYear);
+  const[section,setsection]=useState(Esection);
+  const[numberOfPlaces,setnumberOfPlaces]=useState(EnumberOfPlaces);
+  const[teacher,setteacher]=useState(Eteacher);
+  const[studentName,setStudentName]=useState(EstudentName);
+  const[startHour,setStartHour]=useState(EstartHour);
  
   const [open, setOpen] = React.useState(false);
 
@@ -38,14 +40,17 @@ const EditModal = ({name, id, sub,da,}) => {
   };
 
   const updateSubject = (e) => {
-    console.log("ETVL:",e.target.value.length)
-    if(e.target.value.length != 0)
+    
       setSubject(e.target.value);
   };
 
   const updateDate = (e) => {
-    if(e.target.value.length != 0)
+    
       setDate(e.target.value);
+  }; 
+  const updateStartHour = (e) => {
+    
+    setStartHour(e.target.value);
   };
 
 
@@ -70,12 +75,14 @@ setnumberOfPlaces(e.target.value);
 const updateteacher = (e) => {
 setteacher(e.target.value);
 };
+const updateStudentName = (e) => {
+  setStudentName(e.target.value);
+  };
 
   const updateExam = () => {
     axios
     .put('http://localhost:3001/exams/' + id,{ 
-        subject,
-        date}
+      subject ,date, startHour,session,classroom,universityYear,studyYear,section,numberOfPlaces,teacher,studentName}
     );
     console.log(subject,date);
     refreshExams();
@@ -89,7 +96,7 @@ setteacher(e.target.value);
     window.location.reload();
   }
   const sesiuni = [
-    'vara', 'iarna'
+    'Vara', 'Iarna','Toamna'
   ]
 
   return (
@@ -109,7 +116,7 @@ setteacher(e.target.value);
             id="subject"
             label="subject"
             type="text"
-            defaultValue={sub}
+            defaultValue={subject}
             onChange={updateSubject}
             fullWidth
             
@@ -120,8 +127,19 @@ setteacher(e.target.value);
             id="date"
             label="date"
             type="date"
-            defaultValue={da}
+            defaultValue={date}
             onChange={updateDate}
+            fullWidth
+            />
+
+            <TextField
+            autoFocus
+            margin="dense"
+            id="time"
+            label="time"
+            type="time"
+            defaultValue={startHour}
+            onChange={updateStartHour}
             fullWidth
             />
           
@@ -132,6 +150,7 @@ setteacher(e.target.value);
           id="session"
           type="session"
           label="Session"
+          defaultValue={session}
           onChange={updateSession}
           fullWidth
           
@@ -147,6 +166,7 @@ setteacher(e.target.value);
             id="classroom"
             label="classroom"
             type="text"
+            defaultValue={classroom}
             onChange={updateClassroom}
             fullWidth
             
@@ -157,6 +177,7 @@ setteacher(e.target.value);
             id="universityYear"
             label="universityYear"
             type="text"
+            defaultValue={universityYear}
             onChange={updateuniversitYear}
             fullWidth
           />
@@ -166,6 +187,7 @@ setteacher(e.target.value);
             id="studyYear"
             label="studyYear"
             type="text"
+            defaultValue={studyYear}
             onChange={updatestudyYear}
             fullWidth
           />
@@ -175,6 +197,7 @@ setteacher(e.target.value);
             id="section"
             label="section"
             type="text"
+            defaultValue={section}
             onChange={updatesection}
             fullWidth
           />
@@ -184,6 +207,7 @@ setteacher(e.target.value);
             id="numberOfPlaces"
             label="numberOfPlaces"
             type="text"
+            defaultValue={numberOfPlaces}
             onChange={updatenumbeOfPlaces}
             fullWidth
           />
@@ -193,7 +217,19 @@ setteacher(e.target.value);
             id="teacher"
             label="teacher"
             type="text"
+            defaultValue={teacher}
             onChange={updateteacher}
+            fullWidth
+          />
+
+          <TextField
+            autoFocus
+            margin="dense"
+            id="studentName"
+            label="student name"
+            type="text"
+            defaultValue={studentName}
+            onChange={updateStudentName}
             fullWidth
           />
           
