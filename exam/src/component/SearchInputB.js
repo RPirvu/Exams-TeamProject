@@ -1,16 +1,11 @@
 import React,{useState,useContext} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
 import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add';
 import {Context} from '../api/Context';
 import AddModal from '../component/modals/AddModal'
 import {Select} from '@material-ui/core';
@@ -63,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -112,9 +106,6 @@ const useStyles = makeStyles((theme) => ({
      
         updateFilter(event.target.value);
         event.preventDefault();
-        // console.log("DF",stateDataFilter);
-        // console.log("EX",stateExam)
-        
     }
   
 const theme=createMuiTheme({

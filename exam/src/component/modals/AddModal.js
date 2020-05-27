@@ -15,7 +15,7 @@ import MyTheme from '../../component/MyTheme';
 import SaveIcon from '@material-ui/icons/Save';
 import ClearIcon from '@material-ui/icons/Clear'
 import { makeStyles, rgbToHex } from '@material-ui/core/styles';
-import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
+
 const Modal = () => {
 
   const [open, setOpen] = React.useState(false);

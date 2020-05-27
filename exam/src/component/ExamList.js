@@ -10,69 +10,25 @@ const ExamList = () => {
     const [stateDataFilter, setStateDataFilter] = examFilter;
     const [isLoading, setIsLoading ] = loader;
     
-    // daca avem input in filtru result = date.filter
-    let result;
-//     if (stateDataFilter.length !== 0) {
-//         result = stateDataFilter;   
-//     }
-//     // else result = exam list
-//     else {
-//         result = stateExam;
-//         // dar filtru inca contine text
-//         return(
-//             <div><h1>No results. </h1><br/> <h1>Please try another search term.</h1></div>
-//         )
-//     }
-//     // daca nu s-au incarcat datale din API
-//     if ( isLoading === true ) {
-//        return( 
-//         <Loader/>
-//        ) 
-//     }
-//     // return Exam List
-
-//     // Exam List empty
     
-//    else{ 
-//     return(
-//             <div>
-//             {Array.isArray(result) && result.map((exam, index) => {
-//                 return( 
-//                     <div>
-//                         <Exam
-//                             subject={exam.subject} 
-//                             date={exam.date} 
-//                             id={exam.id} 
-//                             session={exam.session} 
-//                             classroom={exam.classroom} 
-//                             universityYear={exam.universityYear}
-//                             studyYear={exam.studyYear}
-//                             section={exam.section}
-//                             numberOfPlaces={exam.numberOfPlaces} 
-//                             teacher={exam.teacher}
-//                             studentName={exam.studentName}
-//                             startHour={exam.startHour}
-//                         />
-//                     </div>
-//                     )
-//                 })
-//             }
-//             </div> 
-//         )
-//     }
+    let result;
 
     return(
         <div className="some-container">
             {
             (() => {
+                // loading screen
                 if ( isLoading === true ) {
                     return( 
                         <Loader/>
                     )} 
+                //set result
                 if (stateDataFilter.length !== 0)
                     result = stateDataFilter; 
                 if (stateDataFilter.length == 0){
                     result = stateExam;
+                
+                //DB empty error
                 if ((result === stateExam) && (result.length === 0)) {
                     return(<div><h1>No results.</h1><br/> <h1>Data Base must be empty. </h1>
                         <img src='https://i.ya-webdesign.com/images/chrome-dinosaur-png-2.png' alt="Dino" width="15%" height = "15%"/>
@@ -80,12 +36,13 @@ const ExamList = () => {
                         
                         )
                 }
+                //No result error
                 if (Object.entries(stateDataFilter).length === 0){
                     return(<div><h1>No results. </h1><br/> <h1>Please try another search term.</h1>
                     <img src='https://i.redd.it/7ab0ginypjl31.png' alt="Dino" width="15%" height = "15%"/>
                         </div>)}
                 }
-                
+                //Normal return
                 else{ 
                     return(
                             <div>
