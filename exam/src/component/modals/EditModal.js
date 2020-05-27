@@ -10,8 +10,12 @@ import axios from 'axios';
 import {Context} from '../../api/Context';
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
-import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 import MyTheme from '../../component/MyTheme';
+import EditIcon from '@material-ui/icons/Edit';
+import ClearIcon from '@material-ui/icons/Clear'
+import SaveIcon from '@material-ui/icons/Save'
+import { makeStyles, rgbToHex } from '@material-ui/core/styles';
+import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 const EditModal = ({Esubject, Edate, id,Esession,Eclassroom,Eteacher,EuniversityYear,EstudyYear,Esection,EnumberOfPlaces, EstudentName,EstartHour}) => {
 
   const { examData, examFilter } = useContext(Context);
@@ -100,19 +104,30 @@ const updateStudentName = (e) => {
      'Winter','Summer','Autumn'
   ]
 
-  
-
+ 
+const useStyles = makeStyles((theme) => ({
+    open: {
+      backgroundColor: '#333',
+      color: 'rgb(250,250,250)',
+      margin: '0'
+    },
+    
+    
+  }));
+  const classes = useStyles();
   return (
     <div>
        
-      <Button variant="contained" style={MyTheme.palette.companyRed} onClick={handleClickOpen}>
+      <Button variant="contained" style={MyTheme.palette.companyGreen} onClick={handleClickOpen}
+        startIcon={<EditIcon />}
+        >
         Edit
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Edit Exam</DialogTitle>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >
+        
+        <DialogTitle id="form-dialog-title" className={classes.open} >Edit Exam</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            
           </DialogContentText>
           <TextField
             autoFocus
@@ -237,10 +252,14 @@ const updateStudentName = (e) => {
           
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="green">
+          <Button onClick={handleClose} variant="contained" style={MyTheme.palette.companyRed}
+          startIcon={<ClearIcon />}>
             Cancel
           </Button>
-          <Button onClick={updateExam} color="primary">
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          
+          <Button onClick={updateExam} variant="contained" style={MyTheme.palette.companyBlue}
+          startIcon={<SaveIcon />}>
             Save
           </Button>
         </DialogActions>

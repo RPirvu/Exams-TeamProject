@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
       paddingTop: '10px', 
       justifyContent:'center', 
-      paddingLeft: '200px',
-      paddingRight: '200px',
+      paddingLeft: '300px',
+      paddingRight: '300px',
     },
     table : {
       

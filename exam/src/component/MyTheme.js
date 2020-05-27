@@ -12,16 +12,20 @@ export default createMuiTheme({
           contrastText: '#fff',
         },
         companyBlue: {
-            backgroundColor: '#65CFE9',
+            backgroundColor: '#3f50b5',
             color: '#fff',
         },
         companyRed: { 
-            backgroundColor: '#4caf50',
+            backgroundColor: '#d50000',
             color: '#fff',
         },
         accent: { 
             backgroundColor: '#333', 
             color: '#000',
+        },
+        companyGreen: { 
+            backgroundColor: '#4caf50',
+            color: '#fff',
         },
     },
 });

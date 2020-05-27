@@ -1,21 +1,7 @@
 {
   "exams": [
     {
-      "subject": "Web Design",
-      "date": "2020-06-11",
-      "startHour": "09:00",
-      "session": "Summer",
-      "classroom": "AM",
-      "universityYear": "2019-2020",
-      "studyYear": "2",
-      "section": "Informatica Aplicata",
-      "numberOfPlaces": "100",
-      "teacher": "Iordan Victoria",
-      "studentName": "Pirvu Robert",
-      "id": 1
-    },
-    {
-      "subject": "",
+      "subject": "TEST",
       "date": "",
       "startHour": "",
       "session": "",
@@ -26,7 +12,7 @@
       "numberOfPlaces": "",
       "teacher": "",
       "studentName": "",
-      "id": 2
+      "id": 1
     }
   ]
 }

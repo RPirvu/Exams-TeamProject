@@ -11,9 +11,11 @@ import {Context} from '../../api/Context';
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AddIcon from '@material-ui/icons/Add';
-import { Typography, TableRow } from '@material-ui/core';
- 
 import MyTheme from '../../component/MyTheme';
+import SaveIcon from '@material-ui/icons/Save';
+import ClearIcon from '@material-ui/icons/Clear'
+import { makeStyles, rgbToHex } from '@material-ui/core/styles';
+import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 const Modal = () => {
 
   const [open, setOpen] = React.useState(false);
@@ -98,15 +100,21 @@ const Modal = () => {
   const sesiuni = [
     'Winter','Summer','Autumn'
   ]
-
-
+  const useStyles = makeStyles((theme) => ({
+    open: {
+      backgroundColor: '#333',
+      color: 'rgb(250,250,250)',
+      margin: '0'
+    },  
+  }));
+  const classes = useStyles();
   return (
     <div>
       <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
        <AddIcon/>
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Add a New Exam</DialogTitle>
+        <DialogTitle id="form-dialog-title" className={classes.open}>Add a New Exam</DialogTitle>
         <DialogContent>
           <DialogContentText>
             
@@ -132,7 +140,7 @@ const Modal = () => {
             
           />
           <div>
-            <TableRow>
+            
             <TextField
             autoFocus
             margin="dense"
@@ -142,17 +150,18 @@ const Modal = () => {
             fullWidth
             
           />
-          </TableRow>  
+          
           </div>
          
           <Select 
           
           autoFocus
-          margin="dense"
+          margin="none"
           id="session"
           type="Session"
           label="Session"
           onChange={updateSession}
+          display="flex"
           fullWidth
           
           >{sesiuni.map((sessions) => (
@@ -228,13 +237,20 @@ const Modal = () => {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+           
+          <Button onClick={handleClose} variant="contained" style={MyTheme.palette.companyRed}
+            startIcon={<ClearIcon />}  >
             Cancel
-          </Button>
-          <Button onClick={addExam} color="primary">
+          </Button> 
+         
+         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          
+          <Button onClick={addExam} variant="contained" style={MyTheme.palette.companyBlue}
+          startIcon={<SaveIcon />}>
             Save
-          </Button>
-        </DialogActions>
+          </Button> 
+           
+          </DialogActions>
       </Dialog>
     </div>
   );
