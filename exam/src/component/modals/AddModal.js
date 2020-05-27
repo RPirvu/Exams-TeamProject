@@ -12,6 +12,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import AddIcon from '@material-ui/icons/Add';
 import { Typography, TableRow } from '@material-ui/core';
+ 
+import MyTheme from '../../component/MyTheme';
 const Modal = () => {
 
   const [open, setOpen] = React.useState(false);
@@ -100,7 +102,7 @@ const Modal = () => {
 
   return (
     <div>
-      <Button variant="outlined" color="White" onClick={handleClickOpen}>
+      <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
        <AddIcon/>
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -113,7 +115,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="subject"
-            label="subject"
+            label="Subject"
             type="text"
             onChange={updateSubject}
             fullWidth
@@ -148,7 +150,7 @@ const Modal = () => {
           autoFocus
           margin="dense"
           id="session"
-          type="session"
+          type="Session"
           label="Session"
           onChange={updateSession}
           fullWidth
@@ -163,7 +165,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="classroom"
-            label="classroom"
+            label="Classroom"
             type="text"
             onChange={updateClassroom}
             fullWidth
@@ -173,7 +175,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="universityYear"
-            label="universityYear"
+            label="University Year"
             type="text"
             onChange={updateuniversitYear}
             fullWidth
@@ -182,7 +184,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="studyYear"
-            label="studyYear"
+            label="Study Year"
             type="text"
             onChange={updatestudyYear}
             fullWidth
@@ -191,7 +193,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="section"
-            label="section"
+            label="Section"
             type="text"
             onChange={updatesection}
             fullWidth
@@ -200,7 +202,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="numberOfPlaces"
-            label="numberOfPlaces"
+            label="Seats Available"
             type="text"
             onChange={updatenumbeOfPlaces}
             fullWidth
@@ -209,7 +211,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="teacher"
-            label="teacher"
+            label="Teacher"
             type="text"
             onChange={updateteacher}
             fullWidth
@@ -218,7 +220,7 @@ const Modal = () => {
             autoFocus
             margin="dense"
             id="student"
-            label="student"
+            label="Added By"
             type="text"
             onChange={updateStudentName}
             fullWidth

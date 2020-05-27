@@ -10,7 +10,8 @@ import axios from 'axios';
 import {Context} from '../../api/Context';
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
-
+import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
+import MyTheme from '../../component/MyTheme';
 const EditModal = ({Esubject, Edate, id,Esession,Eclassroom,Eteacher,EuniversityYear,EstudyYear,Esection,EnumberOfPlaces, EstudentName,EstartHour}) => {
 
   const { examData, examFilter } = useContext(Context);
@@ -99,9 +100,12 @@ const updateStudentName = (e) => {
      'Winter','Summer','Autumn'
   ]
 
+  
+
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+       
+      <Button variant="contained" style={MyTheme.palette.companyRed} onClick={handleClickOpen}>
         Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -114,7 +118,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="subject"
-            label="subject"
+            label="Subject"
             type="text"
             defaultValue={subject}
             onChange={updateSubject}
@@ -125,18 +129,16 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="date"
-            label="date"
             type="date"
             defaultValue={date}
             onChange={updateDate}
             fullWidth
             />
-
+            
             <TextField
             autoFocus
             margin="dense"
             id="time"
-            label="time"
             type="time"
             defaultValue={startHour}
             onChange={updateStartHour}
@@ -164,7 +166,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="classroom"
-            label="classroom"
+            label="Classroom"
             type="text"
             defaultValue={classroom}
             onChange={updateClassroom}
@@ -175,7 +177,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="universityYear"
-            label="universityYear"
+            label="University Year"
             type="text"
             defaultValue={universityYear}
             onChange={updateuniversitYear}
@@ -185,7 +187,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="studyYear"
-            label="studyYear"
+            label="Study Year"
             type="text"
             defaultValue={studyYear}
             onChange={updatestudyYear}
@@ -195,7 +197,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="section"
-            label="section"
+            label="Section"
             type="text"
             defaultValue={section}
             onChange={updatesection}
@@ -205,7 +207,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="numberOfPlaces"
-            label="numberOfPlaces"
+            label="Seats available"
             type="text"
             defaultValue={numberOfPlaces}
             onChange={updatenumbeOfPlaces}
@@ -215,7 +217,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="teacher"
-            label="teacher"
+            label="Teacher"
             type="text"
             defaultValue={teacher}
             onChange={updateteacher}
@@ -226,7 +228,7 @@ const updateStudentName = (e) => {
             autoFocus
             margin="dense"
             id="studentName"
-            label="student name"
+            label="Updated By"
             type="text"
             defaultValue={studentName}
             onChange={updateStudentName}
@@ -235,7 +237,7 @@ const updateStudentName = (e) => {
           
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="green">
             Cancel
           </Button>
           <Button onClick={updateExam} color="primary">
@@ -243,6 +245,7 @@ const updateStudentName = (e) => {
           </Button>
         </DialogActions>
       </Dialog>
+      
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import axios from 'axios';
 import {Context} from '../../api/Context';
 import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const DeleteExam = ({id}) => {
 
@@ -24,7 +25,8 @@ const DeleteExam = ({id}) => {
     
     }
     return(
-        <Button variant="outlined" color="primary"
+        <Button variant="contained" color= 'secondary'
+        startIcon={<DeleteIcon />}
         onClick={deleteExam}
         >
             Delete

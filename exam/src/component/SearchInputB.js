@@ -14,17 +14,23 @@ import AddIcon from '@material-ui/icons/Add';
 import {Context} from '../api/Context';
 import AddModal from '../component/modals/AddModal'
 import {Select} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import {MenuItem} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color: 'rgb(250,250,250)',
+    justifyContent: 'space-between',
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    display: 'none',
+    display: 'center',
+    alignItems: 'center',
+    color: 'rgb(250,250,250)',
+    paddingLeft: '220px',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -44,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 0),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -53,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inhe100rit',
+    color: 'rgb(240,240,240)',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -62,9 +68,9 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '20ch',
       '&:focus': {
-        width: '20ch',
+        width: '30ch',
       },
     },
   },
@@ -72,11 +78,7 @@ const useStyles = makeStyles((theme) => ({
 
 
  export const SearchInputB = () => {
-  const classes = useStyles();
-    // const [ exams,setExams ] = useContext(Context)
-    // const [ search, setSearch ] = useContext(Context)
-    // const [ dataFiltered,setDataFiltered ] = useContext(Context)
-    
+  const classes = useStyles();  
     const { examData, examFilter } = useContext(Context);
     const [stateExam, setStateExam] = examData;
     const [stateDataFilter, setStateDataFilter] = examFilter;
@@ -84,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
 
     let data = stateExam;
     const updateFilter = (value) => {
-      console.log("upFIlter",search)
+      
         if (search === 'Subject')
         {
         setStateDataFilter(data.filter((exam) => {
@@ -106,7 +108,8 @@ const useStyles = makeStyles((theme) => ({
     }
     
     const onInputChange = (event)  => {
-       
+      
+     
         updateFilter(event.target.value);
         event.preventDefault();
         // console.log("DF",stateDataFilter);
@@ -116,22 +119,19 @@ const useStyles = makeStyles((theme) => ({
   
 const theme=createMuiTheme({
   palette:{
-    primary:
-    {
-        main: '#cfe8fc'
-    },
-    secondary : red
-
+    primary: { main: '#333' },
+    secondary: { main: '#f50057' },
+    white:{ main: 'rgb(250,250,250)'}
   }
 })
 
  const updateSearch = (event) => {
    setSearch(event.target.value);
-   console.log(search)
+   
  }
 
 const choice = [
-  'Subject', 'Section', 'Study Year'
+  ' Subject', ' Section', ' Study Year'
 ]
 
 
@@ -141,11 +141,13 @@ const choice = [
       <AppBar position="relative">
       
         <Toolbar>
-        
           <AddModal/>
-          <Typography className={classes.title} variant="h6" noWrap>
+          
+          
+          <Typography className={classes.title} variant="h4" noWrap>
             Exam Planner
           </Typography>
+          
 
           
       
@@ -164,24 +166,26 @@ const choice = [
             />
             
           </div>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <div>
-          
-          <Select 
-          
-          autoFocus
-          margin="dense"
-          id="choice"
-          type="choice"
-          label="choice"
-          
-          onChange={updateSearch}
-          fullWidth
-          
-          > 
+             
+            <Select 
+            
+            autoFocus
+            margin="dense"
+            id="choice"
+            type="choice"
+            label="choice"
+            color="secondary"
+            style={{ color: 'white' }}
+            onChange={updateSearch}
+            fullWidth
+            
+            >  
             {choice.map((choice) => (
-            <MenuItem key={choice} value={choice}>
-              {choice}
-            </MenuItem>
+              <MenuItem key={choice} value={choice}>
+                {choice}
+              </MenuItem>
           ))}
       </Select> 
           </div>

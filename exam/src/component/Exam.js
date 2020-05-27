@@ -2,7 +2,7 @@ import React from 'react';
 import DeleteExam from '../component/button/DeleteExam'
 import EditModal from '../component/modals/EditModal';
 import Table from '@material-ui/core/Table'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, rgbToHex } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -22,28 +22,29 @@ import Paper from '@material-ui/core/Paper';
 import  {MuiThemeProvider, createMuiTheme} from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
     root: {
-      paddingTop: '10px',
-      display: 'flex',  
+      paddingTop: '10px', 
       justifyContent:'center', 
-      alignItems:'center', 
-      
-        },
-    table : {
-      width : 200,
-      fontSize: 15
-      
+      paddingLeft: '200px',
+      paddingRight: '200px',
     },
+    table : {
+      
+      fontSize: theme.typography.pxToRem(30),
+      borderBottom: 0,
+      color :'rgb(250,250,250)',
+    },
+     
     
     heading: {
       fontSize: theme.typography.pxToRem(20),
     },
     secondaryHeading: {
-      fontSize: theme.typography.pxToRem(20),
-      color: theme.palette.text.secondary,
+      fontSize: theme.typography.pxToRem(18),
+     
     },
     section: {
       fontSize: theme.typography.pxToRem(18),
-      color: theme.palette.text.secondary,
+      
     },
     icon: {
       verticalAlign: 'bottom',
@@ -60,13 +61,11 @@ const useStyles = makeStyles((theme) => ({
         flexBasis : "23.33%"
     },
     boldStyle : {
-        
         margin: '0',
         padding: '0',
         border: '0',
-      
         font: 'inherit',
-        
+ 
     },
     row: {
       flexBasis : '20%',
@@ -75,6 +74,12 @@ const useStyles = makeStyles((theme) => ({
       borderLeft: `2px solid ${theme.palette.divider}`,
       padding: theme.spacing(1, 2),
     },
+    expandedPanelSummary: {
+      backgroundColor: '#333',
+      color: 'rgb(250,250,250)',
+      margin: '0'
+    },
+    
     
   }));
   
@@ -91,16 +96,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Exam({subject, date, id,session,classroom,teacher,universityYear,studyYear,section,numberOfPlaces, studentName,startHour}) {
     const classes = useStyles();
-  
+     
     return (
       <div className={classes.root}>
-        <ExpansionPanel key={id}>
-  
+        <ExpansionPanel key={id}
+       >
           <ExpansionPanelSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-          >
+              classes={{ expanded: classes.expandedPanelSummary }}
+              >
             <div className={classes.column}>
               <Typography className={classes.heading}>{subject}</Typography>
             </div>  
@@ -116,29 +122,27 @@ export default function Exam({subject, date, id,session,classroom,teacher,univer
             
           </ExpansionPanelSummary>
           
-          <ExpansionPanelDetails>           
+          <ExpansionPanelDetails>      
           <TableContainer component={Paper}>               
-         <Table>
-           <TableHead>
+         <Table className={classes.table}>
+           <TableHead >
              <TableRow>
-               <TableCell align='center'>Specialization</TableCell>
                <TableCell align='center'>Teacher</TableCell>
+               <TableCell align='center'>Study Year</TableCell>
                <TableCell align='center'>Classroom</TableCell>
                <TableCell align='center'>Session</TableCell>
                <TableCell align='center'>Number of Seats</TableCell>
-               <TableCell align='center'>Study Year</TableCell>
-               <TableCell align='center'>university Year</TableCell>
-               <TableCell align='center'>Student Name</TableCell>
+               <TableCell align='center'>University Year</TableCell>
+               <TableCell align='center'>Updated By</TableCell>
               </TableRow>
             </TableHead> 
             <TableBody>
               <TableRow>
-                <TableCell align='center'>{section}</TableCell>
                 <TableCell align='center'>{teacher}</TableCell>
+                <TableCell align='center'>{studyYear}</TableCell>
                 <TableCell align='center'>{classroom}</TableCell>
                 <TableCell align='center'>{session}</TableCell>
                 <TableCell align='center'>{numberOfPlaces}</TableCell>
-                <TableCell align='center'>{studyYear}</TableCell>
                 <TableCell align='center'>{universityYear}</TableCell>
                 <TableCell align='center'>{studentName}</TableCell>
               </TableRow>
@@ -164,11 +168,12 @@ export default function Exam({subject, date, id,session,classroom,teacher,univer
                         EstartHour={startHour}
                       />
             </Button>      
-            <DeleteExam id={id}/>          
+            <DeleteExam id={id}/>       
           </ExpansionPanelActions>
           </MuiThemeProvider>
+          
         </ExpansionPanel>
-        
+         
         
       </div>
     );

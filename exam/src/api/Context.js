@@ -7,10 +7,15 @@ export const ExamProvider = (props) => {
 
     const [ exams,setExams ] = useState({});
     const [ dataFiltered,setDataFiltered ] = useState({});
-
+    const [ loading, setLoading ] = useState(true);
     const refreshExams = async () =>{
         await axios.get('http://localhost:3001/exams')
         .then(res => {
+            if (res.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ', res.status);
+                return;
+            }
+            setLoading(false);
             setExams(res.data);
             setDataFiltered(res.data)
         });
@@ -24,7 +29,7 @@ export const ExamProvider = (props) => {
 
     return(
         
-        <Context.Provider value={{examData:[exams,setExams], examFilter: [dataFiltered, setDataFiltered]}}>
+        <Context.Provider value={{examData:[exams,setExams], examFilter: [dataFiltered, setDataFiltered], loader:[ loading, setLoading]}}>
             {props.children}
         </Context.Provider>
         
