@@ -1,18 +1,3 @@
 {
-  "exams": [
-    {
-      "subject": "TEST",
-      "date": "",
-      "startHour": "",
-      "session": "",
-      "classroom": "",
-      "universityYear": "",
-      "studyYear": "",
-      "section": "",
-      "numberOfPlaces": "",
-      "teacher": "",
-      "studentName": "",
-      "id": 1
-    }
-  ]
+  "exams": []
 }
