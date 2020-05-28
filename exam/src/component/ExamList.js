@@ -2,7 +2,6 @@ import React,{useState,useContext} from 'react';
 import {Context} from "../api/Context";
 import Exam from "./Exam";
 import Loader from "./Loader";
-import Dino from "../image/dinosaur02.jpg";
 const ExamList = () => {
     // get Context 
     const { examData, examFilter, loader } = useContext(Context);
@@ -27,21 +26,22 @@ const ExamList = () => {
                     result = stateDataFilter; 
                 if (stateDataFilter.length == 0){
                     result = stateExam;
-                
+                }
                 //DB empty error
                 if ((result === stateExam) && (result.length === 0)) {
-                    return(<div><h1>No results.</h1><br/> <h1>Data Base must be empty. </h1>
+                    return(
+                        <div><h1>No results.</h1><br/> <h1>Data Base must be empty. </h1>
                         <img src='https://i.ya-webdesign.com/images/chrome-dinosaur-png-2.png' alt="Dino" width="15%" height = "15%"/>
                         </div>
-                        
                         )
                 }
                 //No result error
                 if (Object.entries(stateDataFilter).length === 0){
                     return(<div><h1>No results. </h1><br/> <h1>Please try another search term.</h1>
                     <img src='https://i.redd.it/7ab0ginypjl31.png' alt="Dino" width="15%" height = "15%"/>
-                        </div>)}
+                        </div>)
                 }
+                
                 //Normal return
                 else{ 
                     return(

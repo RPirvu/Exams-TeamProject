@@ -76,11 +76,11 @@ const useStyles = makeStyles((theme) => ({
     const { examData, examFilter } = useContext(Context);
     const [stateExam, setStateExam] = examData;
     const [stateDataFilter, setStateDataFilter] = examFilter;
-    const [search , setSearch] = useState('Subject');
+    const [search , setSearch] = useState('Section');
 
     let data = stateExam;
     const updateFilter = (value) => {
-      
+
         if (search === 'Subject')
         {
         setStateDataFilter(data.filter((exam) => {
@@ -99,6 +99,7 @@ const useStyles = makeStyles((theme) => ({
           return exam.studyYear.toLowerCase().indexOf(value.toLowerCase()) !== -1
         }))  
       };
+      console.log("search",search)
     }
     
     const onInputChange = (event)  => {
@@ -122,7 +123,7 @@ const theme=createMuiTheme({
  }
 
 const choice = [
-  ' Subject', ' Section', ' Study Year'
+  'Subject', 'Section', 'Study Year'
 ]
 
 
