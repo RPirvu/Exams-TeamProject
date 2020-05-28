@@ -79,7 +79,7 @@ const Modal = () => {
   };
 
   const addExam = (e) => {
-      axios.post('http://localhost:3001/exams',{subject ,date, startHour,session,classroom,universityYear,studyYear,section,numberOfPlaces,teacher,studentName})
+      axios.post('http://localhost:8800/exams',{subject ,date, startHour,session,classroom,universityYear,studyYear,section,numberOfPlaces,teacher,studentName})
       .then((response) => {
           const exam = {subject:subject, date:date, session:session, classroom:classroom, universityYear:universityYear, studyYear:studyYear,
              section:section, numberOfPlaces:numberOfPlaces, teacher:teacher, studentName:studentName, startHour:startHour};
@@ -91,7 +91,7 @@ const Modal = () => {
       
   }
   const refreshExams = async () => {
-    await axios.get('http://localhost:3001/exams')
+    await axios.get('http://localhost:8800/exams')
     .then(res => {
         setStateExam(res.data);
     });

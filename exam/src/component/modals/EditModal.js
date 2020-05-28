@@ -86,7 +86,7 @@ const updateStudentName = (e) => {
 
   const updateExam = () => {
     axios
-    .put('http://localhost:3001/exams/' + id,{ 
+    .put('http://localhost:8800/exams/' + id,{ 
       subject ,date, startHour,session,classroom,universityYear,studyYear,section,numberOfPlaces,teacher,studentName}
     );
     console.log(subject,date);
@@ -94,7 +94,7 @@ const updateStudentName = (e) => {
   };
 
   const refreshExams = async () => {
-    await axios.get('http://localhost:3001/exams')
+    await axios.get('http://localhost:8800/exams')
     .then(res => {
         setStateExam(res.data);
     });

@@ -9,7 +9,7 @@ export const ExamProvider = (props) => {
     const [ dataFiltered,setDataFiltered ] = useState({});
     const [ loading, setLoading ] = useState(true);
     const refreshExams = async () =>{
-        await axios.get('http://localhost:3001/exams')
+        await axios.get('http://localhost:8800/exams')
         .then(res => {
             if (res.status !== 200) {
                 console.log('Looks like there was a problem. Status Code: ', res.status);

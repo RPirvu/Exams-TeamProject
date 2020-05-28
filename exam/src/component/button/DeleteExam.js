@@ -11,14 +11,14 @@ const DeleteExam = ({id}) => {
   
 
    const deleteExam = () => {
-        axios.delete('http://localhost:3001/exams/' + id)
+        axios.delete('http://localhost:8800/exams/' + id)
         .then(response => {
             refreshExams();
             window.location.reload();
         });
     }
     const refreshExams = async () => {
-        await axios.get('http://localhost:3001/exams')
+        await axios.get('http://localhost:8800/exams')
         .then(res => {
             setStateExam(res.data);
         });
