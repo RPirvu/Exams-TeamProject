@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
           return exam.studyYear.toLowerCase().indexOf(value.toLowerCase()) !== -1
         }))  
       };
-      console.log("search",search)
+      
     }
     
     const onInputChange = (event)  => {

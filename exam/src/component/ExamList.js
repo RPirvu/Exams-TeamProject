@@ -38,7 +38,7 @@ const ExamList = () => {
                 //No result error
                 if (Object.entries(stateDataFilter).length === 0){
                     return(<div><h1>No results. </h1><br/> <h1>Please try another search term.</h1>
-                    <img src='https://i.redd.it/7ab0ginypjl31.png' alt="Dino" width="15%" height = "15%"/>
+                    <img src='https://i.ya-webdesign.com/images/chrome-dinosaur-png-2.png' alt="Dino" width="15%" height = "15%"/>
                         </div>)
                 }
                 
@@ -46,13 +46,6 @@ const ExamList = () => {
                 else{ 
                     return(
                             <div>
-                                {/* <div>
-                                    <img src='https://images.fineartamerica.com/images/artworkimages/medium/2/zero-two-reo-anime-transparent.png' alt="Dino" width="15%" height = "15%"  align='left' margin="none"/>
-                                </div>
-                                <div>
-                                <img src='https://i.pinimg.com/originals/33/fb/7b/33fb7b953c5f533229067491a1f67715.png' alt="Dino" width="15%" height = "15%"  align='right' />
-                                 
-                                </div>  */}
                             {Array.isArray(result) && result.map((exam, index) => {
                                 return( 
                                     <div>
